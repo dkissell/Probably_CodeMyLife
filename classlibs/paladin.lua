@@ -1151,6 +1151,17 @@ if not PaladinFunctions then
 			macros["Consecration"] = false
 		end
 	end
+	-- EDIT: Holy Wrath logic taken from Consecration 
+	SLASH_HOLYWRATH1="/HolyWrath"
+	function SlashCmdList.HOLYWRATH(msg, editbox)
+		if not macros["HolyWrath"] then
+			xrn:message("|cffFF78A0Holy Wrath - Active.")
+			macros["HolyWrath"] = true
+		else
+			xrn:message("|cffFF78A0Holy Wrath - Inactive.")
+			macros["HolyWrath"] = false
+		end
+	end
 	SLASH_HOFREE1 = "/hofree"
 	function SlashCmdList.HOFREE(msg, editbox)
 		if not macros["HoFreeQueue"] then
@@ -1337,6 +1348,14 @@ if not PaladinFunctions then
 
 	function CML.Consecration()
 		if macros["Consecration"] == true then
+			return true
+		end
+		return false
+	end
+
+	-- EDIT: Holy Wrath Queue
+	function CML.HolyWrath()
+		if macros["HolyWrath"] == true then
 			return true
 		end
 		return false
